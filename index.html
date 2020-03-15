@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cook Easy Recipes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="nav-bar"> 
+                <input type="text" id="myInput" placeholder="Search for meals..">
+                <select class="filter mainIngredient">
+                    <option selected disabled>Main Ingredient</option>
+                    <option>Beef</option>
+                    <option>Chicken</option>
+                    <option>Goat</option>
+                    <option>Lamb</option>
+                    <option>Pasta</option>
+                    <option>Pork</option>
+                    <option>Seafood</option>
+                    <option>Vegetarian</option>
+
+                </select>
+                <select class="filter cuisine">
+                    <option selected disabled>Category</option>
+                    <option>American</option>
+                    <option>Argentinian</option>
+                    <option>British</option>
+                    <option>Canadian</option>
+                    <option>Chinese</option>
+                    <option>Croatian</option>
+                    <option>Dutch</option>
+                    <option>Egyptian</option>
+                    <option>French</option>
+                    <option>Greek</option>
+                    <option>Italian</option>
+                    <option>Irish</option>
+                    <option>Jamaican</option>
+                    <option>Japanese</option>
+                    <option>Kenyan</option>
+                    <option>Malaysian</option>
+                    <option>Mexican</option>
+                    <option>Moroccan</option>
+                    <option>Norwegian</option>
+                    <option>Syrian</option>
+                    <option>Thai</option>
+                    <option>Tunisian</option>
+                    <option>Turkish</option>
+                    <option>Vietnamese</option>
+                </select>
+                <input type="submit" class="submit">
+            </nav>
+        </div>
+        <section class="landing-page">
+            <h1>Cook Easy</h1>
+            <h2>What's on the menu tonight?</h2>
+
+        </section>
+    </header>
+        <section class="results-list">
+        </section>
+        <section class="recipeDisplay"></section>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    
+</body>
+</html>
