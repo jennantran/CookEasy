@@ -8,6 +8,8 @@ function formatQueryParams(params) {
 }
 
 function getSearch() {
+    $('.results-list').empty();
+    $('.recipeDisplay').empty();
 
     const mealInput = $('#myInput').val(); //''
     const ingredient = $('.mainIngredient').val(); //null
@@ -73,6 +75,7 @@ function getRecipe(idNo, evt){
     });
 
     $('.results-list').css('display','none');
+
 }
 
 function watchSubmit() {
@@ -112,24 +115,28 @@ function displayResults(responseJson) {
 
 function displayMeal(responseJson){
     $('.results-list').empty();
-    //     `<li>
-    //         <img src="${responseJson.meals.strMealThumb}" target="_blank"</img>
-    //             <h3> ${responseJson.meals.strMeal}</h3>
-    //             <p>${responseJson.meals[i].strInstructions}</p>
-    //     </li>`
-    // );
+    $('.recipeDisplay').empty();
+
+    $('.recipeDisplay').append(    
+        `<img src="${responseJson.meals.strMealThumb}" target="_blank"</img>
+                <h3> ${responseJson.meals.strMeal}</h3>
+                <p>${responseJson.meals[i].strInstructions}</p>`
+        );
     
     for(let i = 1; i < 21; i++){
-        console.log(i);
-        console.log(responseJson);
-        let measure = 'strMeasure' + i;
-        let ingredient = 'strIngredient' + i;
-        console.log(responseJson.meals[0][measure]);
+        let measureStr = 'strMeasure' + i;
+        let ingredientStr = 'strIngredient' + i;
+        let currentMeasure = responseJson.meals[0][measureStr];
+        let currentIngredient = responseJson.meals[0][ingredientStr];
+        console.log(responseJson.meals[0][measureStr]);
 
-        $('.recipeDisplay').append(`
-            <li>${responseJson.meals[0][measure]}</li>
-                <img src="${responseJson.meals.strMealThumb}" target="_blank"</img>`);
-    }
+        if(currentIngredient != "" || currentMeasure != ""){
+            $('.recipeDisplay').append(`
+                <li>${currentMeasure} ${currentIngredient}</li>`);
+        }else{
+            console.log('dont display');
+        }
+}
 }
 
 // //display the results section  
