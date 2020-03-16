@@ -92,7 +92,6 @@ function displayResults(responseJson) {
     console.log(responseJson);
     $('.results-list').empty();
     $('.results-list').css('display','grid');
-    // $('.results-list').css('display','inline-block');
     for (let i = 0; i < responseJson.meals.length; i++){
         $('.results-list').append(
             `<div class="cell cell-${i}" id="${responseJson.meals[i].idMeal}"
@@ -114,7 +113,8 @@ function displayResults(responseJson) {
 function displayRecipe(responseJson){
     console.log('inside:',responseJson);
     $('.recipeDisplay').empty();
-    $('.recipeDisplay').css('display','block');
+    $('.recipeDisplay').css('display','flex');
+    $('.recipeDisplay').css('flex-direction','column');
     $('.recipeDisplay').append(    
         `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
                 <h3> ${responseJson.meals[0].strMeal}</h3>

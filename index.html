@@ -13,7 +13,6 @@
     <header>
         <div class="container">
             <nav class="nav-bar"> 
-                <input type="text" id="myInput" placeholder="Search for meals..">
                 <select class="filter mainIngredient">
                     <option selected disabled>Main Ingredient</option>
                     <option>Beef</option>
@@ -53,17 +52,27 @@
                     <option>Turkish</option>
                     <option>Vietnamese</option>
                 </select>
-                <input type="submit" class="submit">
+                <p class="nav-text">Search or filter by ingredient or by category</p>
             </nav>
         </div>
         <section class="landing-page">
             <h1>CookEasy</h1>
             <h2>What's on the menu tonight?</h2>
+            <div>
+                <input type="text" id="myInput" placeholder="Search for meals..">
+                <input type="submit" class="submit">
+             </div>
         </section>
     </header>
         <section class="results-list">
+            <div class="list-container">
+
+            </div>
         </section>
-        <section class="recipeDisplay"></section>
+        <section class="recipeDisplay">
+            <div class="recipe-container">
+            </div>
+        </section>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
     

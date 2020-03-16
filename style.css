@@ -5,7 +5,7 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: grey;
+    background-color: #3b3936;
 }
 
 header{
@@ -19,19 +19,10 @@ header{
 
 .nav-bar{
     background-color: #ff8000;
-    height: 50px;
+    height: 40px;
 
 
 }
-select .mainIngredient{
-    display: inline-block;
-}
-
-.filter{
-    display: inline-block;
-}
-
-
 
 .landing-page{
     display: flex;
@@ -52,7 +43,7 @@ h2{
 
 
 .results-list{
-    background-color: grey;
+    background-color: #3b3936;
     width: 100vh;
     height: 100vh;
     margin: 2rem;
@@ -71,4 +62,66 @@ h3{
     font-size: 12px;
 }
 
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 
+.nav-text{
+    font-size: 12px;
+    color: white;
+    margin-left: 20px;
+}
+
+.cuisine{
+    margin-left: 15px;
+}
+
+.landing-page{
+    margin-left: 60px;
+    margin-top: 80px;
+}
+
+#myInput{
+    margin-left: 20px;
+}
+
+.mainIngredient{
+    margin-left: 20px;
+}
+
+
+.results-list{
+    display: none;
+}
+
+.results-list{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+}
+
+h3{
+    color: white;
+}
+
+section{
+    width: 75%;
+    text-align: center;
+}
+
+.recipe-container{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.recipeDisplay > img{
+    width: 100px;
+    height: 100px;
+}
+
+p, li{
+    color: white;
+}
