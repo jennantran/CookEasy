@@ -22,7 +22,6 @@ function getSearch() {
     if(!mealInput && !ingredient && !cuisineType){
         alert('Complete at least one field!')
        throw 'error: insufficient number of parameters';
-       
     }
 
     if(mealInput){
@@ -62,6 +61,8 @@ function getRecipe(idNo, evt){
     queryString = formatQueryParams(params);
     url = searchURL + '/lookup.php?' + queryString; 
 
+    $('.results-list').css('display','none');
+
     fetch(url)
     .then(response => {
     if (response.ok) {
@@ -74,7 +75,6 @@ function getRecipe(idNo, evt){
     $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
 
-    $('.results-list').css('display','none');
 
 }
 
@@ -117,6 +117,8 @@ function displayMeal(responseJson){
     $('.results-list').empty();
     $('.recipeDisplay').empty();
 
+    $('.resultsDisplay').css('display','block');
+
     $('.recipeDisplay').append(    
         `<img src="${responseJson.meals.strMealThumb}" target="_blank"</img>
                 <h3> ${responseJson.meals.strMeal}</h3>
@@ -138,9 +140,5 @@ function displayMeal(responseJson){
         }
 }
 }
-
-// //display the results section  
-//   $('#results-list').removeClass('hidden');
-
 
 $(watchSubmit);
