@@ -8,9 +8,7 @@ function formatQueryParams(params) {
 }
 
 function getSearch() {
-    $('.results-list').empty();
-    $('.recipeDisplay').empty();
-
+    $('.recipeDisplay').css('display','none');
     const mealInput = $('#myInput').val(); //''
     const ingredient = $('.mainIngredient').val(); //null
     const cuisineType = $('.cuisine').val(); //null
@@ -51,7 +49,7 @@ function getSearch() {
       });
 }
 
-function getRecipe(idNo, evt){
+function getRecipe(idNo){
     const mealId = idNo;
     const params = {};
     let queryString;
@@ -62,7 +60,7 @@ function getRecipe(idNo, evt){
     url = searchURL + '/lookup.php?' + queryString; 
 
     $('.results-list').css('display','none');
-
+    
     fetch(url)
     .then(response => {
     if (response.ok) {
@@ -70,7 +68,7 @@ function getRecipe(idNo, evt){
     }
     throw new Error(response.statusText);
     })
-    .then(responseJson => displayMeal(responseJson))
+    .then(responseJson => displayRecipe(responseJson))
     .catch(err => {
     $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
@@ -93,6 +91,8 @@ function watchSubmit() {
 function displayResults(responseJson) {
     console.log(responseJson);
     $('.results-list').empty();
+
+    // $('.results-list').css('display','inline-block');
     for (let i = 0; i < responseJson.meals.length; i++){
         $('.results-list').append(
             `<div class="cell cell-${i}" id="${responseJson.meals[i].idMeal}"
@@ -106,24 +106,20 @@ function displayResults(responseJson) {
 
     $('.cell').on('click', event => {
         event.preventDefault();
-        console.log('event current target:', event.currentTarget);
-        console.log('parent id of target:', event.currentTarget.id);
-        getRecipe(event.currentTarget.id, event);
+        getRecipe(event.currentTarget.id);
     })
 }
 
 
-function displayMeal(responseJson){
-    $('.results-list').empty();
+function displayRecipe(responseJson){
+    console.log('inside:',responseJson);
     $('.recipeDisplay').empty();
-
-    $('.resultsDisplay').css('display','block');
-
+    $('.recipeDisplay').css('display','');
     $('.recipeDisplay').append(    
-        `<img src="${responseJson.meals.strMealThumb}" target="_blank"</img>
-                <h3> ${responseJson.meals.strMeal}</h3>
-                <p>${responseJson.meals[i].strInstructions}</p>`
-        );
+        `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
+                <h3> ${responseJson.meals[0].strMeal}</h3>
+                <p>${responseJson.meals[0].strInstructions}</p>`
+    );
     
     for(let i = 1; i < 21; i++){
         let measureStr = 'strMeasure' + i;
@@ -138,7 +134,7 @@ function displayMeal(responseJson){
         }else{
             console.log('dont display');
         }
-}
+    }
 }
 
 $(watchSubmit);
