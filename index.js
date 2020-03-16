@@ -58,7 +58,7 @@ function getRecipe(idNo){
     params.i = mealId;
     queryString = formatQueryParams(params);
     url = searchURL + '/lookup.php?' + queryString; 
-
+    console.log(url);
     $('.results-list').css('display','none');
     
     fetch(url)
@@ -91,7 +91,7 @@ function watchSubmit() {
 function displayResults(responseJson) {
     console.log(responseJson);
     $('.results-list').empty();
-
+    $('.results-list').css('display','grid');
     // $('.results-list').css('display','inline-block');
     for (let i = 0; i < responseJson.meals.length; i++){
         $('.results-list').append(
@@ -114,7 +114,7 @@ function displayResults(responseJson) {
 function displayRecipe(responseJson){
     console.log('inside:',responseJson);
     $('.recipeDisplay').empty();
-    $('.recipeDisplay').css('display','');
+    $('.recipeDisplay').css('display','block');
     $('.recipeDisplay').append(    
         `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
                 <h3> ${responseJson.meals[0].strMeal}</h3>
@@ -128,12 +128,17 @@ function displayRecipe(responseJson){
         let currentIngredient = responseJson.meals[0][ingredientStr];
         console.log(responseJson.meals[0][measureStr]);
 
-        if(currentIngredient != "" || currentMeasure != ""){
+        if(currentIngredient != false || currentMeasure != false){
             $('.recipeDisplay').append(`
                 <li>${currentMeasure} ${currentIngredient}</li>`);
         }else{
             console.log('dont display');
         }
+
+        $('.cell').on('click', event => {
+            event.preventDefault();
+            getRecipe(event.currentTarget.id);
+        })
     }
 }
 
