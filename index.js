@@ -7,11 +7,14 @@ function formatQueryParams(params) {
     return queryItems.join('&');
 }
 
+
 function getSearch() {
+
     $('.recipeDisplay').css('display','none');
     const mealInput = $('#myInput').val(); //''
     const ingredient = $('.mainIngredient').val(); //null
     const cuisineType = $('.cuisine').val(); //null
+
 
     const params = {};
     let queryString;
@@ -47,6 +50,7 @@ function getSearch() {
       .catch(err => {
         $('#js-error-message').text(`Something went wrong: ${err.message}`);
       });
+
 }
 
 function getRecipe(idNo){
@@ -92,6 +96,9 @@ function displayResults(responseJson) {
     console.log(responseJson);
     $('.results-list').empty();
     $('.results-list').css('display','grid');
+    var elmnt = document.getElementById('results-list');
+        elmnt.scrollIntoView({behavior: "smooth"});
+
     for (let i = 0; i < responseJson.meals.length; i++){
         $('.results-list').append(
             `<div class="cell cell-${i}" id="${responseJson.meals[i].idMeal}"
@@ -115,6 +122,9 @@ function displayRecipe(responseJson){
     $('.recipeDisplay').empty();
     $('.recipeDisplay').css('display','flex');
     $('.recipeDisplay').css('flex-direction','column');
+    
+
+
     $('.recipeDisplay').append(    
         `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
                 <h3> ${responseJson.meals[0].strMeal}</h3>
@@ -134,12 +144,10 @@ function displayRecipe(responseJson){
         }else{
             console.log('dont display');
         }
-
-        $('.cell').on('click', event => {
-            event.preventDefault();
-            getRecipe(event.currentTarget.id);
-        })
     }
+    console.log('here');
+    var elmnt = document.getElementById('recipeDisplay');
+    elmnt.scrollIntoView({behavior: "smooth"});
 }
 
 $(watchSubmit);

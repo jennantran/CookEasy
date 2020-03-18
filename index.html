@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
     <header>
@@ -52,7 +55,9 @@
                     <option>Turkish</option>
                     <option>Vietnamese</option>
                 </select>
-                <p class="nav-text">Search or filter by ingredient or by category</p>
+                <p class="nav-text"><span><i class="fa fa-search">Search box</i></span><span>||</span><span><i class="material-icons">
+                    local_dining</i>Filter Option 1</span><span>||</span><span><i class="material-icons">
+                        place</i> Filter Option 2 </span></p>
             </nav>
         </div>
         <section class="landing-page">
@@ -64,17 +69,15 @@
              </div>
         </section>
     </header>
-        <section class="results-list">
+        <section class="results-list" id="results-list">
             <div class="list-container">
-
             </div>
         </section>
-        <section class="recipeDisplay">
+        <section class="recipeDisplay" id="recipeDisplay">
             <div class="recipe-container">
             </div>
         </section>
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
-    
 </body>
 </html>
