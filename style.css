@@ -79,6 +79,10 @@ i.material-icons, .fa-search before{
     margin-right: 5px;
 }
 
+.fa-search:before{
+    margin-right: 5px;
+}
+
 .cuisine{
     margin-left: 15px;
 }

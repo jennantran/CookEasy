@@ -76,8 +76,6 @@ function getRecipe(idNo){
     .catch(err => {
     $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
-
-
 }
 
 function watchSubmit() {
@@ -118,16 +116,14 @@ function displayResults(responseJson) {
 
 
 function displayRecipe(responseJson){
-    console.log('inside:',responseJson);
     $('.recipeDisplay').empty();
     $('.recipeDisplay').css('display','flex');
     $('.recipeDisplay').css('flex-direction','column');
     
 
-
     $('.recipeDisplay').append(    
         `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
-                <h3> ${responseJson.meals[0].strMeal}</h3>
+                <h2> ${responseJson.meals[0].strMeal}</h2>
                 <p>${responseJson.meals[0].strInstructions}</p>`
     );
     
@@ -136,16 +132,14 @@ function displayRecipe(responseJson){
         let ingredientStr = 'strIngredient' + i;
         let currentMeasure = responseJson.meals[0][measureStr];
         let currentIngredient = responseJson.meals[0][ingredientStr];
-        console.log(responseJson.meals[0][measureStr]);
+   
 
         if(currentIngredient != false || currentMeasure != false){
             $('.recipeDisplay').append(`
                 <li>${currentMeasure} ${currentIngredient}</li>`);
-        }else{
-            console.log('dont display');
         }
     }
-    console.log('here');
+
     var elmnt = document.getElementById('recipeDisplay');
     elmnt.scrollIntoView({behavior: "smooth"});
 }
