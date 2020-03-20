@@ -34,7 +34,7 @@ header{
 
 h1{
     color:white;
-    font-size: 30px;
+    font-size: 42px;
     font-family: 'Montserrat';
 }
 
@@ -51,7 +51,6 @@ h2{
     align-items: center;
     background-color: #ff8000;
     height: 40px;
-  
 }
 
 .nav-text{
@@ -72,6 +71,8 @@ h2{
 .filter:hover{
     background-color: #595959;
     color: white;
+    transition: 0.3s;
+    opacity: 0.6;
 }
 i.material-icons, .fa-search before{
     font-size: 12px;
@@ -119,21 +120,31 @@ span{
 /****** button ******/
 #myInput{
     margin-left: 20px;
-    width: 25%;
+    margin-right: 15px;
+    width: 30%;
+    height: 35px;
+    font-size: 14px;
+    
 }
 
 input[type="submit"]{
     background-color: transparent;
     color:orange;
     border-radius: 12px;
-    border: 1px solid white;
+    border: 3px solid orange;
     cursor: pointer;
-    width: 90px;
+    width: 120px;
+    height: 35px;
+    font-size: 16px;
  
 }
 
 input[type="submit"].submit:hover {
-    border: 1px solid black;
+    border: 2px solid white;
+    opacity: 0.6;
+    transition: 0.3s;
+    background-color: #ff8000;
+    color: white;
   }
 
 
@@ -156,6 +167,9 @@ h3{
     text-align: center;
 }
 
+.cell:hover{
+    opacity: 1;
+}
 
 /****** recipe display page ******/
 .recipeDisplay {
@@ -174,7 +188,11 @@ h3{
 
 p, li{
     color: white;
-    font-size: 15px;
+    font-size: 16px;
+}
+
+p{
+   padding: 10px;
 }
 
 

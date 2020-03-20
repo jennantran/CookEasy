@@ -123,8 +123,7 @@ function displayRecipe(responseJson){
 
     $('.recipeDisplay').append(    
         `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
-                <h2> ${responseJson.meals[0].strMeal}</h2>
-                <p>${responseJson.meals[0].strInstructions}</p>`
+                <h2> ${responseJson.meals[0].strMeal}</h2>`
     );
     
     for(let i = 1; i < 21; i++){
@@ -139,6 +138,9 @@ function displayRecipe(responseJson){
                 <li>${currentMeasure} ${currentIngredient}</li>`);
         }
     }
+    $('.recipeDisplay').append(    
+         `<p>${responseJson.meals[0].strInstructions}</p>`
+    );
 
     var elmnt = document.getElementById('recipeDisplay');
     elmnt.scrollIntoView({behavior: "smooth"});
