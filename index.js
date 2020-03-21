@@ -135,7 +135,9 @@ function displayRecipe(responseJson){
 
         if(currentIngredient != false || currentMeasure != false){
             $('.recipeDisplay').append(`
-                <li>${currentMeasure} ${currentIngredient}</li>`);
+            <div class="ingredients">
+                <li>${currentMeasure} ${currentIngredient}</li>
+            </div>`);
         }
     }
     $('.recipeDisplay').append(    

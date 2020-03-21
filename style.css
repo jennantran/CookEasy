@@ -28,14 +28,15 @@ header{
     display: flex;
     flex-direction: column;
     margin-left: 60px;
-    margin-top: 80px;
+    margin-top: 150px;
 }
 
 
 h1{
     color:white;
-    font-size: 42px;
+    font-size: 36px;
     font-family: 'Montserrat';
+    padding: 10px;
 }
 
 h2{
@@ -47,21 +48,15 @@ h2{
 /**** nav bar ******/
 .nav-bar{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: row; 
+    align-items: center; 
     background-color: #ff8000;
     height: 40px;
 }
 
-.nav-text{
-    font-size: 12px;
-    color: white;
-    margin-left: 20px;
-}
-
 .filter {
     appearance: none;
-    width: 110px;
+    width: 140px;
     height: 20px;
     font-size: 10px;
     box-shadow: 1px 1px #ccc;
@@ -74,6 +69,17 @@ h2{
     transition: 0.3s;
     opacity: 0.6;
 }
+
+.filter-option{
+    margin-top: 40px;
+}
+
+.filter-or{
+    margin-left: 130px;
+    margin-top: 30px;
+    text-shadow: #000 0px 0px 1px;
+}
+
 i.material-icons, .fa-search before{
     font-size: 12px;
     margin-left: 12px;
@@ -88,7 +94,7 @@ i.material-icons, .fa-search before{
     margin-left: 15px;
 }
 .mainIngredient{
-    margin-left: 20px;
+    margin-right: 43px;
 }
 /********list of recipes page ******/
 
@@ -119,11 +125,11 @@ span{
 
 /****** button ******/
 #myInput{
-    margin-left: 20px;
     margin-right: 15px;
-    width: 30%;
+    width: 340px;
     height: 35px;
     font-size: 14px;
+    margin-top: 20px;
     
 }
 
@@ -157,6 +163,14 @@ input[type="submit"].submit:hover {
     margin-right: auto;
     padding-top: 30px;
 }
+
+.cell{
+    cursor: pointer;
+
+}
+.cell:hover img {
+    opacity: 0.4;
+  }
 
 h3{
     color: white;
@@ -192,7 +206,58 @@ p, li{
 }
 
 p{
-   padding: 10px;
+   padding: 30px;
+   line-height:22px;
+   text-align: left;
 }
 
+.ingredients{
+    text-align: left;
+    margin-left: 30px;
 
+}
+
+/****** media queries *******/
+
+@media screen and (min-width:480px) {
+    body {
+        width: 100%;
+        height: 100%;
+        min-width: 480px;
+        height:auto;
+        
+    }
+
+    .projectContainer{
+        width: 40%;
+    }
+
+  }
+  
+  @media screen and (min-width:800px) {
+    body {
+        width: 100%;
+        height: 100%;
+        min-width: 800px;
+    }
+
+    p, li{
+        color: white;
+        font-size: 16px;
+    }
+    
+    p{
+       padding: 30px;
+       line-height:22px;
+       text-align: left;
+    }
+
+    .quizScreenShot{
+        display: block;
+        width: 500px;
+        height: 400px;
+    }
+    header{
+        height: 650px;
+    }
+   }
