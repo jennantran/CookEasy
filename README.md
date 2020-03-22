@@ -14,7 +14,7 @@ Demo
 * * *
 
 [Demo](https://jennantran.github.io/CookEasy/)
-
+[Repo](https://github.com/jennantran/CookEasy/)
 
 * * *
 
