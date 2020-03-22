@@ -18,13 +18,13 @@ Screenshots
 -----------
 
 Landing Page:
-![Landing Page](/path/img.jpg "Title")
+![Landing Page](LandingPage.png)
 
 List of Recipes:
-![List of Recipes](/path/img.jpg "Title")
+![List of Recipes](RecipeList.png)
 
 Selected Recipe Page:
-![Selected Recipe](/path/img.jpg "Title")
+![Selected Recipe](SelectedRecipe.png)
 
 * * *
 
