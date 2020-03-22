@@ -19,12 +19,14 @@ function getSearch() {
     const params = {};
     let queryString;
     let url;
+
+  //this if statement makes certain that the url only includes one of the three 
+  //input types
   
     if(!mealInput && !ingredient && !cuisineType){
         alert('Complete at least one field!')
        throw 'error: insufficient number of parameters';
     }
-
     if(mealInput){
         params.s = mealInput;
         queryString = formatQueryParams(params);
