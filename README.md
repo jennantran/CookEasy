@@ -9,8 +9,12 @@ Summary
 
 An application with an archive of recipes. Users can search up specific recipes, browse through recipes by main ingredient, or browse through recipes by cuisine type.
 
+Demo
+====
+* * *
 
-[CookEasy Link](https://jennantran.github.io/CookEasy/)
+[Demo](https://jennantran.github.io/CookEasy/)
+
 
 * * *
 
