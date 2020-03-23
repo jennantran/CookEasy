@@ -16,7 +16,7 @@ function getSearch() {
     const cuisineType = $('.cuisine').val(); //null
 
 
-    const params = {};
+    let params = {};
     let queryString;
     let url;
 
@@ -50,21 +50,20 @@ function getSearch() {
       })
       .then(responseJson => displayResults(responseJson))
       .catch(err => {
-        $('#js-error-message').text(`Something went wrong: ${err.message}`);
+        $('#js-error-message').text('Something went wrong. No results were found.');
       });
 
 }
 
 function getRecipe(idNo){
-    const mealId = idNo;
-    const params = {};
+    let params = {};
     let queryString;
     let url;
 
-    params.i = mealId;
+
+    params.i = idNo;
     queryString = formatQueryParams(params);
     url = searchURL + '/lookup.php?' + queryString; 
-    console.log(url);
     $('.results-list').css('display','none');
     
     fetch(url)
@@ -83,30 +82,33 @@ function getRecipe(idNo){
 function watchSubmit() {
     $('.submit').on('click', event => {
         event.preventDefault();
+        $('#js-error-message').empty();
+
         try {
             getSearch();
           }
           catch(error) {
             console.error(error);
           }
+          $('#main').val('default');
+          $('#cuisine').val('default');
     });
 }
   
 function displayResults(responseJson) {
-    console.log(responseJson);
     $('.results-list').empty();
     $('.results-list').css('display','grid');
-    var elmnt = document.getElementById('results-list');
+    let elmnt = document.getElementById('results-list');
         elmnt.scrollIntoView({behavior: "smooth"});
 
     for (let i = 0; i < responseJson.meals.length; i++){
         $('.results-list').append(
             `<div class="cell cell-${i}" id="${responseJson.meals[i].idMeal}"
-                <li>
-                    <img class="mealPic" src="${responseJson.meals[i].strMealThumb}" target="_blank"</img>
-                    <h3> ${responseJson.meals[i].strMeal}</h3>
-                </li> 
-            </div>`
+                    <li>
+                       <img class="mealPic" src="${responseJson.meals[i].strMealThumb}" alt="meal picture"/>
+                       <h3> ${responseJson.meals[i].strMeal}</h3>
+                    </li> 
+                </div>`
         );
     };
 
@@ -124,7 +126,7 @@ function displayRecipe(responseJson){
     
 
     $('.recipeDisplay').append(    
-        `<img src="${responseJson.meals[0].strMealThumb}" target="_blank"</img>
+        `<img src="${responseJson.meals[0].strMealThumb}" alt="meal pictures"/>
                 <h2> ${responseJson.meals[0].strMeal}</h2>`
     );
     
@@ -146,7 +148,11 @@ function displayRecipe(responseJson){
          `<p>${responseJson.meals[0].strInstructions}</p>`
     );
 
-    var elmnt = document.getElementById('recipeDisplay');
+    $('.recipeDisplay').append(`<form>
+             <input type="button" value="Go back" onclick="window.history.back()">    
+         </form>`);
+
+    let elmnt = document.getElementById('recipeDisplay');
     elmnt.scrollIntoView({behavior: "smooth"});
 }
 

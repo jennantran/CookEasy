@@ -23,12 +23,13 @@
         
             <h2>What's on the menu tonight?</h2>
             <form>
+                    <label aria-label="Search for recipes"></label>
                     <input type="text" id="myInput" placeholder="Search for yummy meals.">
-                    <input type="submit" class="submit">
-                    <p class="filter-or"> Or</p>
+                    <input type="submit" class="submit" vale="Submit">
+                    <p class="filter-or"> Find recipes by searching up meals, filtering by main ingredients, or filtering by category. </p>
                     <div class="filter-option">
-                        <select class="filter mainIngredient">
-                            <option selected disabled>Main Ingredient</option>
+                        <select class="filter mainIngredient" id="main">
+                            <option value="default" selected disabled>Main Ingredient</option>
                             <option>Beef</option>
                             <option>Chicken</option>
                             <option>Goat</option>
@@ -38,14 +39,13 @@
                             <option>Seafood</option>
                             <option>Vegetarian</option>
                         </select>
-                        <select class="filter cuisine">
-                            <option selected disabled>Category</option>
+                        <select class="filter cuisine" id="cuisine">
+                            <option value ="default" selected disabled>Category</option>
                             <option>American</option>
                             <option>Argentinian</option>
                             <option>British</option>
                             <option>Canadian</option>
                             <option>Chinese</option>
-                            <option>Croatian</option>
                             <option>Dutch</option>
                             <option>Egyptian</option>
                             <option>French</option>
@@ -70,7 +70,6 @@
         </section>
     </header>
         <section id="js-error-message">
-
         </section>
         <section class="results-list" id="results-list">
             <div class="list-container">
