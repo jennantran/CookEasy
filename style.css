@@ -147,6 +147,17 @@ input[type="submit"].submit:hover {
     color: white;
   }
 
+  #back-button{
+    width: 60px;
+    height: 20px;
+    font-size: 12px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color:orange;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
 /***** results list *****/
 
 .results-list{

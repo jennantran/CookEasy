@@ -149,7 +149,7 @@ function displayRecipe(responseJson){
     );
 
     $('.recipeDisplay').append(`<form>
-             <input type="button" value="Go back" onclick="window.history.back()">    
+             <input type="button" value="Go back" id="back-button" onclick="window.history.go(0)">    
          </form>`);
 
     let elmnt = document.getElementById('recipeDisplay');
